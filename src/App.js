@@ -4,6 +4,7 @@ import { add_Reminder, remove_Reminder, clear_Reminder } from './actions';
 import {connect} from 'react-redux';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import logo from './reminder.png'
 class App extends Component {
   state = {
     text: '',
@@ -19,7 +20,7 @@ class App extends Component {
                 <li key={reminder.id} className='list-group-item'>
                   <div>{reminder.text}</div>
                   <div>{moment(new Date(reminder.date)).fromNow()} </div>
-                  <div className="remove btn btn-danger" onClick={() => this.props.remove_Reminder(reminder.id)}>X</div>
+                  <div className="closeIcon btn btn-danger" onClick={() => this.props.remove_Reminder(reminder.id)}>X</div>
                 </li>
                 )
               })
@@ -30,7 +31,7 @@ class App extends Component {
   render(){
   return (
     <div className="App">
-        <img src="" alt="" />
+        <img src={logo} alt="" />
       <div className="reminder-title">
         <h2>What Should You Do ?</h2>
       </div>
@@ -50,6 +51,7 @@ class App extends Component {
           showTimeSelect
           timeFormat="HH:mm"
           timeIntervals={15}
+          placeholderText= "Enter Date"
           timeCaption="time"
           dateFormat="MMMM d, yyyy h:mm aa"
         />

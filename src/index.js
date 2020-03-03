@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import {Provider} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import reminders from './reducers'
+import './index.css'
 
 
 const store = createStore(reminders);
